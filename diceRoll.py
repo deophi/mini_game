@@ -17,20 +17,11 @@ def sortPlayerPosition(array):
                 array[j] = array[j+1]
                 array[j+1] = temp
 
-def sortGuys(array):
-    for i in range(10-1):
-        for j in range(10-1):
-            if array[j] < 21 and array[j] < array[j+1] and array[j+1] < 21:
-                temp = array[j]
-                array[j] = array[j+1]
-                array[j+1] = temp
-            elif array[j] > 20 and array[j] > array[j+1]:
-                temp = array[j]
-                array[j] = array[j+1]
-                array[j+1] = temp
+print("Input total players (min. 2 players) and max score. Every time the dice is thrown, it will accumulate to your score. If your score get higher than max score, you will eliminated in this game.")
+print("\nLet's Start The Game!\n")
 
 while True:
-    maxScore = input("How much max score for this game? ")
+    maxScore = input("Enter max score for this game: ")
     if maxScore.isdigit():
         maxScore = int(maxScore)
         break
@@ -43,10 +34,10 @@ while True:
     if players.isdigit():
         players = int(players)
 
-        if 2 <= players <= 4:
+        if players > 1:
             break
         
-        print("Total players must be between 2 - 4 players.")
+        print("Total players must be more than 2!")
         continue
 
     print("Input must be number.")
