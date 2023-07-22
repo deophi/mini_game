@@ -26,11 +26,11 @@ def generateQuestion():
         except:
             continue
 
-    if "%.2f" % guess == "%.2f" % answer:
+    if round(guess, 2) == round(answer, 2):
         print("Congratulation! Your answer is correct")
         return 1
     else:
-        print("The correct answer is", "%.2f" % answer)
+        print("The correct answer is", round(answer, 2))
         return 0
 
 print("Let's start the test!\n")
