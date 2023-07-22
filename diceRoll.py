@@ -1,21 +1,24 @@
 import random
 
+# rolling the dice
 def roll():
     minValue = 1
     maxValue = 6
     return random.randint(minValue, maxValue)
 
+# sort player higher score and eliminated score
 def sortPlayerPosition(array):
     for i in range(players-1):
         for j in range(players-1):
             if array[j][1] <= maxScore and array[j+1][1] <= maxScore and array[j][1] < array[j+1][1]:
-                temp = array[j]
-                array[j] = array[j+1]
-                array[j+1] = temp
-            elif array[j][1] > 20 and array[j+1][1] <= maxScore and array[j][1] < array[j+1][1]:
-                temp = array[j]
-                array[j] = array[j+1]
-                array[j+1] = temp
+                sorting(j)
+            elif array[j][1] > maxScore and array[j+1][1] <= maxScore and array[j][1] > array[j+1][1]:
+                sorting(j)
+
+def sorting(j):
+    temp = playersScore[j]
+    playersScore[j] = playersScore[j+1]
+    playersScore[j+1] = temp
 
 print("Input total players (min. 2 players) and max score. Every time the dice is thrown, it will accumulate to your score. If your score get higher than max score, you will eliminated in this game.")
 print("\nLet's Start The Game!\n")
@@ -81,7 +84,7 @@ sortPlayerPosition(playersScore)
 
 for i in range(players):
     if playersScore[i][1] > maxScore:
-        print(playersScore[i][0], "eliminated.")
+        print(playersScore[i][0], "eliminated with score", playersScore[i][1])
     else:
         print(playersScore[i][0], "score is", playersScore[i][1])
 
