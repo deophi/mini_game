@@ -1,4 +1,15 @@
-with open("story.txt", "r") as f:
+while True:
+    lang = input("Which story do you want? (ENG/IDN) ").upper()
+    story = ""
+    if lang == "ENG":
+        story = "english_story"
+        break
+    elif lang == "IDN":
+        story = "indonesian_story"
+        break
+    print("Input must be \"IDN\" or \"ENG\"!")
+    
+with open(story+".txt", "r") as f:
     story = f.read()
 
 words       = set()
@@ -24,4 +35,4 @@ for word in words:
 for word in words:
     story = story.replace(word, answers[word])
 
-print(story)
+print("\n"+story)
