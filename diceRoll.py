@@ -94,4 +94,4 @@ for i in range(players):
     else:
         print(playersScore[i][0], "score is", playersScore[i][1])
 
-print("\nGame Ends.")
+print("\nGame Ends...")
