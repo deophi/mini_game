@@ -1,23 +1,24 @@
 import random
+import speech_recognition as srec
+
+def input_number():
+    while True:
+        answer  = input("Enter your answer (1-10): ")
+
+        try:
+            answer = int(answer)
+
+            if(answer > 10):
+                print("Answer number 1-10.\n")
+                continue
+            return answer
+        except:
+            print("Please answer number 1-10\n")
 
 while True:
     print("Let's guess number between 1-10. You have 3 chances.\n")
     live = 3
     correct = random.randint(1, 10)
-
-    def input_number():
-        while True:
-            answer  = input("Input your number: ")
-
-            try:
-                answer = int(answer)
-
-                if(answer > 10):
-                    print("Enter number 1-10.\n")
-                    continue
-                return answer
-            except:
-                print("Please enter number 1-10\n")
 
     while live > 0:
         answer = input_number()
